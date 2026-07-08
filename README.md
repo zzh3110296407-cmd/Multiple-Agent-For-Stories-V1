@@ -96,11 +96,13 @@ DEEPSEEK_API_KEY=
 
 ## Docker Hub 镜像命名
 
-本仓库的 Docker 镜像名不带语言目录名。发布到 Docker Hub 时，推荐使用：
+本仓库的 Docker 镜像名不带语言目录名。当前 Docker Hub 使用同一个仓库，通过 backend/frontend tag 区分服务：
 
 ```text
-<your-dockerhub-namespace>/multiple-agent-for-stories-backend:<tag>
-<your-dockerhub-namespace>/multiple-agent-for-stories-frontend:<tag>
+zihangzhong/multiple-agent-for-stories-v1:backend-latest
+zihangzhong/multiple-agent-for-stories-v1:frontend-latest
+zihangzhong/multiple-agent-for-stories-v1:backend-1.0.0
+zihangzhong/multiple-agent-for-stories-v1:frontend-1.0.0
 ```
 
 本地构建时如果未设置 Docker Hub 镜像变量，`docker compose` 会使用：
@@ -110,14 +112,12 @@ multiple-agent-for-stories-backend:latest
 multiple-agent-for-stories-frontend:latest
 ```
 
-发布前可以设置：
+如需按 Docker Hub 镜像名重新构建，可以设置：
 
 ```powershell
-$env:MAS_BACKEND_IMAGE = "<your-dockerhub-namespace>/multiple-agent-for-stories-backend:1.0.0"
-$env:MAS_FRONTEND_IMAGE = "<your-dockerhub-namespace>/multiple-agent-for-stories-frontend:1.0.0"
+$env:MAS_BACKEND_IMAGE = "zihangzhong/multiple-agent-for-stories-v1:backend-latest"
+$env:MAS_FRONTEND_IMAGE = "zihangzhong/multiple-agent-for-stories-v1:frontend-latest"
 docker compose build
-docker push "$env:MAS_BACKEND_IMAGE"
-docker push "$env:MAS_FRONTEND_IMAGE"
 ```
 
 ## 存储模式
