@@ -140,7 +140,7 @@ DEEPSEEK_API_KEY=
 zihangzhong/multiple-agent-for-stories-v1:backend-latest
 zihangzhong/multiple-agent-for-stories-v1:frontend-latest
 zihangzhong/multiple-agent-for-stories-v1:backend-1.0.0
-zihangzhong/multiple-agent-for-stories-v1:frontend-1.0.0
+zihangzhong/multiple-agent-for-stories-v1:frontend-1.0.1
 ```
 
 本地构建时如果未设置 Docker Hub 镜像变量，`docker compose` 会使用：
